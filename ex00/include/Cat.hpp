@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 21:40:01 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/08 21:40:36 by sawang           ###   ########.fr       */
+/*   Updated: 2023/09/12 22:44:16 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Cat : public Animal
 {
 	public:
 		Cat();
-		~Cat();
 		Cat(const Cat &copy);
 		Cat &operator=(const Cat &rhs);
+		~Cat();
 
 		void makeSound(void) const;
 };

@@ -6,7 +6,10 @@ SRC_DIR := src
 OBJ_DIR := obj
 HEADER_DIR := include
 
-SRCS :=
+SRCS := main.cpp \
+		Animal.cpp \
+		Dog.cpp \
+		Cat.cpp
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 all : $(NAME)
