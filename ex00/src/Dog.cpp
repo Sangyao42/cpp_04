@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:30:53 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/12 22:58:13 by sawang           ###   ########.fr       */
+/*   Updated: 2023/09/13 15:03:45 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Dog &Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog assignation operator called" << std::endl;
 	Animal::operator=(rhs);
-	// (*this).operator=(rhs);
 	return (*this);
 }
 
