@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 22:32:12 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/12 22:51:04 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:47:05 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ Cat::Cat(const Cat &copy) : Animal (copy)
 Cat &Cat::operator=(const Cat &rhs)
 {
 	std::cout << "Cat assignation operator called" << std::endl;
-	Animal::operator=(rhs);
+	if (this != &rhs)
+		Animal::operator=(rhs);
 	return (*this);
 }
 
