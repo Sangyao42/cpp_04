@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 16:30:53 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/13 19:35:06 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/25 23:00:49 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,14 @@ Dog::Dog(const Dog &copy) : Animal(copy)
 Dog &Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog assignation operator called" << std::endl;
-	Animal::operator=(rhs);
-	this->_brain = new Brain();
+	if (this != &rhs)
+	{
+		Animal::operator=(rhs);
+		this->_brain = new Brain();
+		for (int i = 0; i < 100; i++)
+			this->_brain->setIdea(i, rhs._brain->getIdea(i))
+
+	}
 	return (*this);
 }
 

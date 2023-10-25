@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:46:29 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/12 22:59:47 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/25 15:07:54 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Animal
 		std::string getType(void) const;
 
 		virtual void makeSound(void) const;
+
 	protected:
 		std::string _type;
 };
