@@ -1,6 +1,7 @@
 NAME := main
 CC := c++
 CPPFLAGS := -std=c++98 -Wall -Wextra -Werror
+# CPPFLAGS += -fsanitize=address
 
 SRC_DIR := src
 OBJ_DIR := obj

@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:20:14 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 16:56:21 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 17:46:12 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,25 @@ int main()
 	Brain floatingBrain(*dog->getBrain());
 	std::cout << "floatingBrain's idea: \n" << floatingBrain << std::endl;
 
-	animals[0] = animals[5];
-	std::cout << "animals[0] is now a " << animals[0]->getType() << std::endl;
+	// animals[0] = animals[5];
+	//error: segmentation fault
+	// when destructor, the animals[5] is already deleted and animals[0] is pointing to the same address
+	// but the brain in animals[0] is not deleted because of object slicing
+	// definitely, the brain in animals[0] is a dangling pointer
+	// std::cout << "animals[0] is now a " << animals[0]->getType() << std::endl;
 
+	// Dog *dog2 = dynamic_cast<Dog *>(animals[0]);
+	// if (dog2)
+	// 	std::cout << "dog2's idea: \n" << *(dog->getBrain()) << std::endl;
+	// else
+	// {
+	// 	std::cout << "animals[0] is not a dog" << std::endl;
+	// 	std::cout << "the dynamic casting failed" << std::endl;
+	// }
 
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
-
+	// system("leaks main");
 	return 0;
 }
