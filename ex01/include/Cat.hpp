@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 21:40:01 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/25 14:57:14 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 13:48:37 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ class Cat : public Animal
 
 		virtual void makeSound(void) const;
 
+		Brain *getBrain(void) const;
+
 	private:
 		Brain *_brain;
 };
+
 #endif

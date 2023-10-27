@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 21:41:49 by sawang            #+#    #+#             */
-/*   Updated: 2023/09/12 22:58:27 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 14:59:23 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Animal::Animal() : _type("Animal")
 {
 	std::cout << "Animal default constructor called" << std::endl;
+}
+
+Animal::Animal(std::string type) : _type(type)
+{
+	std::cout << "Animal " << type << " constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &copy)

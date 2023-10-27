@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:58:39 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/25 16:02:53 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 14:17:56 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Dog : public Animal
 		virtual ~Dog();
 
 		virtual void makeSound(void) const;
+
+		Brain *getBrain(void) const;
 
 	private:
 		Brain *_brain;

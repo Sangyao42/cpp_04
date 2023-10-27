@@ -9,7 +9,8 @@ HEADER_DIR := include
 SRCS := main.cpp \
 		Animal.cpp \
 		Dog.cpp \
-		Cat.cpp
+		Cat.cpp \
+		Brain.cpp
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 all : $(NAME)

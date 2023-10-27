@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:46:29 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/25 15:07:54 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 14:01:03 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Animal
 {
 	public:
 		Animal();
+		Animal(std::string type);
 		Animal(const Animal &copy);
 		Animal &operator=(const Animal &rhs);
 		virtual ~Animal();

@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:58:26 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/25 23:01:15 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 13:50:49 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Brain
 	private:
 		std::string _ideas[100];
 };
+
+std::ostream &operator<<(std::ostream &out, const Brain &brain);
 
 #endif

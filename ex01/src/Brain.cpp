@@ -6,11 +6,12 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 13:12:50 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 13:42:04 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 15:07:02 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include <iostream>
 
 Brain::Brain()
 {
@@ -45,10 +46,29 @@ Brain::~Brain()
 
 void	Brain::setIdea(std::string idea, int index)
 {
-	this->_ideas[index] = idea;
+	if (index < 0 || index > 99)
+	{
+		std::cout << "index out of brain"  << std::endl;
+		return ;
+	}
+	else
+		this->_ideas[index] = idea;
 }
 
 std::string	Brain::getIdea(int index) const
 {
-	return (this->_ideas[index]);
+	if (index < 0 || index > 99)
+	{
+		std::cout << "index out of brain" << std::endl;
+		return ("");
+	}
+	else
+		return (this->_ideas[index]);
+}
+
+std::ostream &operator<<(std::ostream &out, const Brain &brain)
+{
+	for (int i = 0; i < 5; i++)
+		out << "No." << i + 1 << " idea is " << brain.getIdea(i) << std::endl;
+	return (out);
 }
