@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:20:14 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 15:07:51 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/27 16:56:21 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ int main()
 	dog->getBrain()->setIdea("I want to go out", 1);
 	Brain floatingBrain(*dog->getBrain());
 	std::cout << "floatingBrain's idea: \n" << floatingBrain << std::endl;
+
+	animals[0] = animals[5];
+	std::cout << "animals[0] is now a " << animals[0]->getType() << std::endl;
+
 
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
