@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:39:48 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/30 13:25:49 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 19:27:04 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ Character::Character(const std::string &name) : _name(name)
 
 Character::Character(const Character &copy)
 {
-	*this = copy;
+	// *this = copy;
+	for (int i = 0; i < 4; i++)
+	{
+		if (copy._materia[i])
+			this->_materia[i] = copy._materia[i]->clone();
+		else
+			this->_materia[i] = NULL;
+	}
 }
 
 Character &Character::operator=(const Character &rhs)
@@ -50,6 +57,7 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
+		// setMateria(NULL, i);
 		delete this->_materia[i];
 		this->_materia[i] = NULL;
 	}
@@ -72,6 +80,7 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
+	delete m; //?????
 }
 
 void Character::unequip(int idx)
@@ -84,6 +93,26 @@ void Character::use(int idx, ICharacter &target)
 {
 	if (idx >= 0 && idx < 4 && this->_materia[idx])
 		this->_materia[idx]->use(target);
+}
+
+AMateria *Character::getMateria(int idx) const
+{
+	if (idx >= 0 && idx < 4)
+		return (this->_materia[idx]);
+	return (NULL);
+}
+
+std::ostream &operator<<(std::ostream &o, const Character &rhs)
+{
+	o << rhs.getName() << " is equipped with: " << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (rhs.getMateria(i))
+			o << "Slot " << i << ": " << *rhs.getMateria(i) << std::endl;
+		else
+			o << "Slot " << i << ": (null)" << std::endl;
+	}
+	return (o);
 }
 
 // test scope
