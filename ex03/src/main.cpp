@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:35:39 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/30 19:47:30 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 20:23:36 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,42 +56,20 @@
 
 namespace unequippedWrapper
 {
-	AMateria *unequipProxy(Character &characterToUnequip, int idx)
+	AMateria *unequipProxy(ICharacter &characterToUnequip, int idx)
 	{
 		if (idx < 0 || idx > 3)
 			return (NULL);
 
 		AMateria *tmp = NULL;
-		tmp = characterToUnequip.getMateria(idx);
-		characterToUnequip.unequip(idx);
+		tmp = dynamic_cast<Character &>(characterToUnequip).getMateria(idx);
+		dynamic_cast<Character &>(characterToUnequip).unequip(idx);
 		return (tmp);
 	}
 }
 
 int main(void)
 {
-	// tests from subject
-	// IMateriaSource* src = new MateriaSource();
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
-
-	// ICharacter* me = new Character("me");
-
-	// AMateria* tmp;
-	// tmp = src->createMateria("ice");
-	// me->equip(tmp);
-	// tmp = src->createMateria("cure");
-	// me->equip(tmp);
-	// std::cout << *(dynamic_cast<Character *>(me)) << std::endl;
-
-	// ICharacter* bob = new Character("bob");
-	// me->use(0, *bob);
-	// me->use(1, *bob);
-
-	// delete bob;
-	// delete me;
-	// delete src;
-
 	AMateria *floor[50];
 	for (int i = 0; i < 50; i++)
 		floor[i] = NULL;
@@ -129,29 +107,12 @@ int main(void)
 	{
 		if (!floor[i])
 		{
-			floor[i] = unequippedWrapper::unequipProxy(*dynamic_cast<Character *>(me), 1);
+			floor[i] = unequippedWrapper::unequipProxy(*me, 1);
 			break;
 		}
 	}
 	std::cout << *(dynamic_cast<Character *>(me)) << std::endl;
 
-	//test for copy assignment
-	// ICharacter *test = new Character("test");
-	// tmp = src->createMateria("cure");
-	// test->equip(tmp);
-	// tmp = src->createMateria("ice");
-	// test->equip(tmp);
-	// std::cout << *dynamic_cast<Character *>(test) << std::endl;
-	// Character *testCopy = new Character(*dynamic_cast<Character *>(test));
-	// std::cout << *testCopy << std::endl;
-	// for (int i = 0; i < 50; i++)
-	// {
-	// 	if (!floor[i])
-	// 	{
-	// 		floor[i] = unequippedWrapper::unequipProxy(*dynamic_cast<Character *>(testCopy), 0);
-	// 		break;
-	// 	}
-	// }
 	ICharacter *bobCopy = new Character(*dynamic_cast<Character *>(bob));
 	tmp = src->createMateria("ice");
 	bobCopy->equip(tmp);
@@ -161,7 +122,7 @@ int main(void)
 	{
 		if (!floor[i])
 		{
-			floor[i] = unequippedWrapper::unequipProxy(*dynamic_cast<Character *>(bobCopy), 0);
+			floor[i] = unequippedWrapper::unequipProxy(*bobCopy, 0);
 			break;
 		}
 	}
@@ -178,6 +139,7 @@ int main(void)
 			std::cout << "Floor " << i << ": (null)" << std::endl;
 	}
 
+	//delet all unequipped materia on the floor
 	for (int i = 0; i < 50; i++)
 	{
 		if (floor[i])
