@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:13:13 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 18:06:04 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 17:17:18 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "ICharacter.hpp"
 # include <iostream>
+
+class ICharacter;
 
 class AMateria
 {
@@ -33,5 +35,7 @@ class AMateria
 	protected:
 		std::string _type;
 };
+
+std::ostream &operator<<(std::ostream &o, const AMateria &rhs);
 
 #endif

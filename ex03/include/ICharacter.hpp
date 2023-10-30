@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:16:34 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 18:39:33 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 14:09:12 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "AMateria.hpp"
 # include <iostream>
+
+class AMateria;
 
 class ICharacter
 {
