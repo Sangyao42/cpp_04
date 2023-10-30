@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:15:34 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 18:45:08 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 11:44:05 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Character : public ICharacter
 		virtual ~Character();
 
 		virtual std::string const &getName(void) const;
+		
 		virtual void equip(AMateria *m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter &target);
