@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:39:48 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/30 19:27:04 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 20:20:14 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ Character::Character(const std::string &name) : _name(name)
 		this->_materia[i] = NULL;
 }
 
-Character::Character(const Character &copy)
+Character::Character(const Character &copy) : _name(copy._name)
 {
-	// *this = copy;
 	for (int i = 0; i < 4; i++)
 	{
 		if (copy._materia[i])
@@ -80,7 +79,7 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
-	delete m; //?????
+	delete m;
 }
 
 void Character::unequip(int idx)
