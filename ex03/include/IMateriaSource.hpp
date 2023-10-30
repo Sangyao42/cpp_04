@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:06:47 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 18:43:36 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 14:06:40 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class IMateriaSource
 {
 	public:
-		virtual ~IMateriaSource();
+		virtual ~IMateriaSource(){};
 		virtual void learnMateria(AMateria *m) = 0;
 		virtual AMateria *createMateria(std::string const &type) = 0;
 };
