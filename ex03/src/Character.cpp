@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:39:48 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/27 20:58:24 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 12:50:11 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Character &Character::operator=(const Character &rhs)
 {
 	if (this != &rhs)
 	{
-		// this->~Character();
 		for (int i = 0; i < 4; i++)
 		{
 			delete this->_materia[i];
+			this->_materia[i] = NULL;
 			this->_materia[i] = rhs._materia[i]->clone();
 		}
 		this->_name = rhs._name;
@@ -49,11 +49,8 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_materia[i])
-		{
-			delete this->_materia[i];
-			this->_materia[i] = NULL;
-		}
+		delete this->_materia[i];
+		this->_materia[i] = NULL;
 	}
 }
 
@@ -76,16 +73,6 @@ void	Character::equip(AMateria *m)
 	}
 }
 
-{
-	Materia   *m = new Ice();
-	{
-		Character c;
-
-		c.equip(m);
-	}
-	delete m;
-}
-
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
@@ -97,3 +84,14 @@ void Character::use(int idx, ICharacter &target)
 	if (idx >= 0 && idx < 4 && this->_materia[idx])
 		this->_materia[idx]->use(target);
 }
+
+// test scope
+// {
+// 	Materia   *m = new Ice();
+// 	{
+// 		Character c;
+
+// 		c.equip(m);
+// 	}
+// 	delete m;
+// }
