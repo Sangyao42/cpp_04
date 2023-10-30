@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:39:48 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/30 12:50:11 by sawang           ###   ########.fr       */
+/*   Updated: 2023/10/30 13:25:49 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Character &Character::operator=(const Character &rhs)
 		{
 			delete this->_materia[i];
 			this->_materia[i] = NULL;
-			this->_materia[i] = rhs._materia[i]->clone();
+			if (rhs._materia[i])
+				this->_materia[i] = rhs._materia[i]->clone();
 		}
 		this->_name = rhs._name;
 	}
