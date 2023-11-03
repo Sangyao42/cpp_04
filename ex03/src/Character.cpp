@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:39:48 by sawang            #+#    #+#             */
-/*   Updated: 2023/10/30 20:20:14 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/03 17:03:21 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		// setMateria(NULL, i);
 		delete this->_materia[i];
 		this->_materia[i] = NULL;
 	}
